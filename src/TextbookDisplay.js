@@ -2,15 +2,26 @@ import React, { useState } from "react";
 
 const TextbookDisplay = () => {
     const [text, setText] = useState("");
+    const [addText, setAddText] = useState("");
+
+    const onClickAddText = () =>{
+        setAddText(text);
+        setText("");
+    }
 
     return(
         <div>
             <input
               type="text"
               value={text}
-              onchange={(event) => setText(event.target.value)}
+              onChange={(e) => setText(e.target.value)}
             />
-            <p>{text}</p>
+
+            <button onClick={onClickAddText}>追加</button>
+
+            <p>
+                ボタンクリック：{addText}
+            </p>
         </div>
     ); 
 };
